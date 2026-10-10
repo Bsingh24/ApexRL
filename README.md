@@ -10,7 +10,7 @@ The aim of this project is to train a reinforcement learning agent to drive a se
 # Methodology
 The model used is Proximal Policy Optimization (PPO). The actor outputs the mean of three continuous actions (steering, throttle, and brake), with a learned standard deviation for each.
 
-The simulator runs in deterministic mode at 60 Hz and is paused between actions. Each action is applied for 6 steps, so the agent makes 10 decisions per simulated second.
+The simulator runs in deterministic mode at 60 Hz and is paused between actions. Each action is applied for 6 physics steps, so the agent makes 10 decisions per simulated second. By default, BeamNG runs in real time independently of the training code, so the time between actions would vary with how long the code takes, and the car would keep driving on its last input during training updates. Pausing and stepping manually ensures every action lasts exactly 0.1 seconds of simulated time, keeping the agent's experience consistent.
 
 | Hyperparameter | Value |
 |---|---|
